@@ -47,3 +47,35 @@ console.log("Arrays in JS");
 
 
 //ADVANCED ARRAY
+// combining two arrays
+// const arr= ["abc","xyz","pqr"]
+// const arr1= ["lmn","stv","ded"]
+// const arr2= [arr,arr1]
+// console.log(arr2); // we can see array can also take arrays as the data
+
+// // if we want to merge convert the nested array's elements in the array(parent) 
+// // then we can use concat()method or spread operator(...)
+
+// // concat method can only combine two arrays
+// const concatArr= arr.concat(arr1)
+// console.log(concatArr) 
+
+// //use of spread opertor is considered more efficient as it can have multiple arguments
+// const spredArray = [...arr,...arr1,...concatArr]
+// console.log(spredArray);
+
+// converting array unnder array or nested arrays can be made flat using flat method
+// const arr2= [[1,2,3,4,5],[6,7,[8,9,0,10,12]]]
+// const flattened_array=arr2.flat(Infinity)
+// console.log(arr2);
+// console.log(flattened_array)
+
+// const val1=2344
+// const val2=3344
+// const val3=4344
+// let arr = Array.of(val1,val2,val3) //creates array
+// console.log(arr);
+
+const arr1= Array.from("Varun") // creates array of every character
+console.log(arr1);
+
