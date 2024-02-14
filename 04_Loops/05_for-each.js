@@ -1,6 +1,6 @@
 //for each loop is also a function for array we can directly use this as function therefore
 //for each loop doesnt return any value
-
+//for each loop takes callback funtion as argument
 const myArr= [
     {
         'firstName':'Varun',
