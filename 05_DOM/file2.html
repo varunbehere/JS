@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta name ="viewport" content = "width = device-width, initial-scale=1.0">
+        <title>
+            Parent Child 
+        </title>
+    </head>
+    <body>
+        <h1>Week</h1>
+        <div class="week">
+            <div class="weekdays">
+                <div class="day">Monday</div>
+                <div class="day">Tuesday</div>
+                <div class="day">Wednesday</div>
+                <div class="day">Thursday</div>
+                <div class="day">Friday</div>
+            </div>
+            <div class="weekend">
+                <div class="weekend-days">Saturday</div>
+                <div class="weekend-days">Sunday</div>
+            </div>
+        </div>
+
+        <script>
+            const weekend = document.querySelector(".weekend");
+            console.log(weekend)
+            weekend.style.backgroundColor = 'red';
+            console.log(weekend.children)
+            weekend.children[0].style.color= 'yellow';
+            
+            const weekdays = document.querySelectorAll('.day')
+            console.log(weekdays)
+            // weekdays.forEach(function(day,index){
+            //     let a = [0,0,0,0,0]
+            //     for (let i = 0; i < a.length; i++) {
+            //         // if (a[i]==0){
+            //         //     day.style.color = 'yellow'
+            //         //     a[i]=1
+            //         // }
+            //         // else{
+            //         //     day.style.color = 'red'
+            //         //     a[i]=0
+            //         // }
+            //         if (index % 2 === 0) {
+            //             day.style.color = 'yellow';
+            //         } else {
+            //             day.style.color = 'red';
+            //         }
+
+            //     }
+
+            // })
+            let colorIndex = 0;
+            let a =[0,0,0,0,0]
+    setInterval(function() {
+        weekdays.forEach(function(day, index) {
+            // const color = colorIndex % 2 === 0 ? 'yellow' : 'red';
+            // day.style.color = color;
+            // colorIndex++;
+            if (a[index]==0) {
+                day.style.color='red'
+                a[index]=1
+                
+            } else {
+                day.style.color='yellow'
+                a[index]=0
+            }
+            
+        });
+    }, 1000); 
+        </script>
+    </body>
+</html>
