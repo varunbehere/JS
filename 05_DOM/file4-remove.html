@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Removing and Modifying</title>
+    </head>
+    <body>
+        
+        <ul id="Subjects">Subjects
+            <li>Python</li>
+        </ul>
+        <script>    
+
+                function createElements(langName) {
+                    const li = document.createElement('li')
+                    li.appendChild(document.createTextNode(langName))
+                    document.querySelector('#Subjects').appendChild(li)
+                }
+                createElements('Js')
+                createElements('C')
+                createElements('CPP')
+                createElements('Java')
+                
+                // one way to modify the elements
+                const newLang = document.querySelector('li:nth-child(4)')
+                // newLang.innerHTML = 'DSA with'
+                const newSub = document.createElement('li')
+                newSub.appendChild(document.createTextNode('New Subject'))
+                newLang.replaceWith(newSub)
+
+                //removing a element from document
+                const nodeToremove = document.querySelector('li:last-child')
+                nodeToremove.remove()
+                // document.querySelector('li:last-child').remove()                          // this also can be used to remove the element, this can be also considered optimal
+
+
+        </script>
+    </body>
+
+</html>
