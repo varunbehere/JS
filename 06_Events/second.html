@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        img{
+            width: 350px;
+        }
+        li{
+            display: inline;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Click on the image to delete</h1>
+    <ul id ="images">
+        <li><img id ='Dessert'src="https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dessert"></li>
+        <li><img id ='Cycle'src="https://images.pexels.com/photos/20073934/pexels-photo-20073934/free-photo-of-a-bicycle-leaning-against-a-wall-next-to-a-wooden-door.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cycle"></li>
+        <li><img id ='Holi'src="https://images.pexels.com/photos/18230348/pexels-photo-18230348/free-photo-of-celebration-of-colors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Holi"></li>
+        <li><img id ='Restaurant'src="https://images.pexels.com/photos/20104868/pexels-photo-20104868/free-photo-of-porto.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant"></li>
+        <li><img id ='Architecture'src="https://images.pexels.com/photos/18923572/pexels-photo-18923572/free-photo-of-old-town-houses-in-poznan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Architecture"></li>
+        <li><img id =''src="" alt=""></li>
+    </ul>
+    
+
+    <script>
+        const ulList = document.querySelectorAll('li')
+        ulList.forEach((element)=> {
+            element.addEventListener('click', function (e){
+                e.stopPropagation()
+                let ch = e.target.id
+                switch (ch) {
+                    case 'Dessert':
+                            e.target.remove()
+                        break;
+                    case 'Cycle':
+                            e.target.remove()
+                    break;
+                    case 'Holi':
+                            e.target.remove()
+                    break;
+                    case 'Restaurant':
+                            e.target.remove()
+                    break;
+                    case 'Architecture':
+                            e.target.remove()
+                    break;
+                    default:
+                        break;
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>
