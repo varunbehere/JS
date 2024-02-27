@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handling</title>
+</head>
+<body>
+    
+    <div style="background-color: black;padding: 20px; color: white;">
+        Component 1
+        <div style="background-color: green;padding: 20px;">
+            Component 2
+            <div style="background-color: red; padding: 20px;">
+                Component 3
+                <button id = 'hiButton'>Say Hi</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const divList = document.querySelectorAll('div')
+        console.log(divList)
+        divList.forEach(list => {
+            list.addEventListener('click',function (e){
+                // e.stopPropagation()
+                // if not used stopPropogation() method the eventHandler follow the event bubbling(type of event propogation)
+                
+                if (list.style.backgroundColor == 'red'){
+                    alert('Red')
+                }
+                if (list.style.backgroundColor == 'green'){
+                    alert('green')
+                }
+                if (list.style.backgroundColor == 'black'){
+                    alert('Black')
+                }
+            }/* ,true : this argument here will make eventHandler follow the Event capturing (Event Propogation Type)*/)
+        });
+        document.querySelector('#hiButton').addEventListener('click', (e)=>{
+            alert('HI')
+        })
+    </script>
+</body>
+</html>
