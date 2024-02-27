@@ -24,17 +24,20 @@
         console.log(divList)
         divList.forEach(list => {
             list.addEventListener('click',function (e){
-                // e.stopPropagation()
+                e.stopPropagation()
                 // if not used stopPropogation() method the eventHandler follow the event bubbling(type of event propogation)
                 
                 if (list.style.backgroundColor == 'red'){
                     alert('Red')
+                    console.log(e.target)
                 }
                 if (list.style.backgroundColor == 'green'){
                     alert('green')
+                    console.log(e.target.parentElement)
                 }
                 if (list.style.backgroundColor == 'black'){
                     alert('Black')
+                    console.log(e.target)
                 }
             }/* ,true : this argument here will make eventHandler follow the Event capturing (Event Propogation Type)*/)
         });
