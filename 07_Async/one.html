@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async 1</title>
+</head>
+<body>
+    <button id="stopButton">Stop</button>
+
+        <script>
+            // document.querySelector('h1')
+            const h1 = document.createElement('h1')
+            h1.setAttribute('id','texth1')
+            h1.innerHTML= 'Varun'
+            document.body.appendChild(h1)
+            
+            const h11 = document.createElement('h1')
+            h11.setAttribute('id','texth11')
+            h11.innerHTML= 'Varun'
+            document.body.appendChild(h11)
+            
+            const interButton = document.createElement('button')
+            interButton.setAttribute('id','interButton')
+            interButton.innerHTML= 'Stop Interval'
+            document.body.appendChild(interButton)
+            // setTimout is one of thee function from async js and it is used to call a function after a timeout 
+            // similarly there is one more method setInterval
+            // setInterval is used to continnuosly call a funcion after the specific interval
+            const change = setTimeout(() => {       
+                    document.querySelector('h1').innerHTML= 'Behere'
+                    console.log('Text Changed');
+                }, 2000);
+            document.querySelector('#stopButton').addEventListener('click', function (e) {
+                clearTimeout(change) // clear Timeout we use this method
+                console.log('Clicked');
+            })
+
+            let call = 0 
+            const inter = setInterval(() => {
+                if (call ===1){
+                word = 'Varun'
+                document.querySelector('#texth11').innerHTML= 'Varun'
+                call = 0
+                }
+                else{
+                    document.querySelector('#texth11').innerHTML= 'Behere'
+                    call = 1 
+                }
+            }, 2000);
+            document.querySelector('#interButton').addEventListener('click', ()=>{
+                clearInterval(inter)
+            })
+
+        </script>
+</body>
+</html>
