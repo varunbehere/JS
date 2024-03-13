@@ -59,17 +59,58 @@
 
 
 //Promise 4
-let promiseFour = new Promise (function (resolve,reject){
-    const trigger = false
-    if (!trigger){
-        reject('ERROR : Something Went Wrong')
-    }else{
-        resolve({userName : 'Varun', email: 'varunbehere@gmail.com'})
+// let promiseFour = new Promise (function (resolve,reject){
+//     const trigger = false
+//     if (!trigger){
+//         reject('ERROR : Something Went Wrong')
+//     }else{
+//         resolve({userName : 'Varun', email: 'varunbehere@gmail.com'})
+//     }
+// })
+// promiseFour.then((user)=>{
+//     console.log(user);
+// })
+// .catch(function(error){
+//     console.log(error);
+// })
+
+
+//Promise 5 Using async-await
+const promiseFive = new Promise((resolve,reject)=>{
+    const trigger = true
+    if (!trigger) {
+        setTimeout(()=>{
+            reject('Error: Something went wrong')
+        },1000)
+        
+    } else {
+        setTimeout(function(){
+            resolve('SucceFull' )
+        },1000)
     }
 })
-promiseFour.then((user)=>{
-    console.log(user);
-})
-.catch(function(error){
-    console.log(error);
-})
+
+//async function returns promise implicitly
+// snippet below shows async function that shows implementation of an async-await in js 
+// async-await cannot handle the error on its own, so to handle the error using async we need to have try-catch block
+// await waits until the promise is executed
+// async function handlePromiseFive(){
+//     // for example we havent used await but the promise will get resolved/reject in 1 second so it will print pending 
+//     const printer = await promiseFive
+//     console.log(printer);
+// }
+// handlePromiseFive()
+
+// TO handle the erroor we use try-catch block in async function
+async function errorHandling(){
+    try {
+        const promiseHandler = await promiseFive
+        console.log(promiseHandler);
+    } catch (error) {
+        console.error(error)
+    }
+}
+errorHandling()
+
+
+
