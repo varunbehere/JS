@@ -20,12 +20,23 @@ function UserStats(userName, age, totalLogin){
 
     // return this    // we are returning the current instance
 }
+function Workloads(workPerformed, timespent){
+    this.workPerformed = workPerformed
+    this.timespent = timespent
+}
 
 const var1 = new UserStats('Varun', 19, 6)   // this new keyword overhere creates the new instance of  userStats() function 
 const var2 = new UserStats('Behere',20, 10)
 
+const var3 = new Workloads('Frontend Done', '4hrs')
 // If we dont use the new keyword in the above operations the values will get updated and we cant access the values in var1
 console.log(var1)
 console.log(var2)
+
+
+//To check if the particular instance belongs to the particular constructor function we use 
+// instanceOf - returns true if instance of particular constructor function else false
+console.log(var3 instanceof UserStats);
+console.log(var3 instanceof Workloads);
 
 console.log(var1.constructor) // this method is used to understand the relationship between object and constructor
