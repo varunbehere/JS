@@ -3,6 +3,9 @@ Whenever we want to use encapsulation we can use getters and setters (but its us
     - both get and set are used together
     - used for validation, manipulation
     - controlling access of the property
+
+    - Only get() method returns
+    - Set() doesnt need to return explicitly
 */
 
 //New way
@@ -12,9 +15,8 @@ class User{
         this.passwd = passwd
     }
     /*
-    In get and set method we have 
-    
-    
+    In get and set method we have used different names to property
+        - Its because constructor also tries to update it everytime along with get and set methods that causes stack full issue
     */
 
     get passwd (){
@@ -34,12 +36,33 @@ class User{
     // And if we want to still retain that value we have to store in different value/object
 }
 const user1 = new User('abc@xyz.com','qwerty@12345')
-console.log(`Password : ${user1.passwd}`)
+// console.log(`Password : ${user1.passwd}`)
 
 
 
 // Second way -- using define property
+function ConFunction(email, passwd){
+    this.email = email;
+    this._passwd = passwd;
 
-const newObj = {
-    name : ''
+    Object.defineProperty(this, 'passwd', {
+        get: function(){
+            return this._passwd.split('').map(() => '#').join('');
+        },
+        set: function(value){           //facing some issue with setter
+            this._passwd = value.split('').map((char, index) => {
+                if (index % 2 === 1) {
+                    return '@'; 
+                } else {
+                    return char;
+                }
+            }).join('');
+        }
+    });
 }
+const conFunctionObj = new ConFunction('abc@xyz.com', 'qwerty@123456');
+console.log(conFunctionObj.passwd); // Output I am getting instead of #@#@#@#: #######
+
+
+
+// Third way
