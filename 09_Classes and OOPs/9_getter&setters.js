@@ -64,5 +64,17 @@ const conFunctionObj = new ConFunction('abc@xyz.com', 'qwerty@123456');
 console.log(conFunctionObj.passwd); // Output I am getting instead of #@#@#@#: #######
 
 
-
 // Third way
+const UsingObject = {
+    _email: 'abc@xyz.com',
+    _passwd : 'abc',
+
+    get email(){
+        return this._email.toUpperCase()
+    },
+    set email(val) {
+        this._email =val
+    }
+}
+const usingObject = Object.create(UsingObject)
+console.log(usingObject.email)
