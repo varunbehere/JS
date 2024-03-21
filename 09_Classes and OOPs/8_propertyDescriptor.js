@@ -40,6 +40,7 @@ for (const [key,value] of Object.entries(obj)) {
 }
 console.log('-----------------')
 obj.name = 'Varun'
+console.log(`Has own property : ${obj.hasOwnProperty('name')}` )   // to check if the name is from Object obj
 // and when I change properties
 
 Object.defineProperty(obj,'name',{
@@ -70,3 +71,4 @@ Object.defineProperties(obj,{
 for (const [key,value] of Object.entries(obj)) {
     console.log(`${key} : ${value}`)
 }
+console.log('----------------------')
