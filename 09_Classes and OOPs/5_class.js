@@ -47,3 +47,6 @@ User.prototype.encryptPassword= function(){
 }
 const newUser = new User('varunbehere','varunbehere@gmail.com','sdasADdsA')
 console.log(newUser.encryptPassword())
+
+
+
